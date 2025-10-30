@@ -1,1 +1,1 @@
-# Handspeak-AI
+# Handspeak-AI(*NOT* *COMPLETED*)
