@@ -16,7 +16,17 @@ export const Home: React.FC<Props> = ({ mode }) => {
       loop: true,
     })
   }, [])
-
+  useEffect(() => {
+    const section3 = document.getElementById("section3");
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) section3?.classList.add("visible");
+      },
+      { threshold: 0.2 }
+    );
+    if (section3) observer.observe(section3);
+    return () => observer.disconnect();
+  }, []);
   return (
     <>
       <section id="section1" className={mode === "light" ? "lightSec1" : "darkSec1"}>
@@ -45,7 +55,6 @@ export const Home: React.FC<Props> = ({ mode }) => {
                 </div>
               </div>
             </div>
-
             <div className="device phone">
               <div className="body">
                 <div className="notch"></div>
@@ -57,8 +66,16 @@ export const Home: React.FC<Props> = ({ mode }) => {
         </div>
       </section>
       <section id="section3">
-        <h1>Real time AI integration</h1>
-        <p>Advantages: </p>
+        <h1>Advantages: </h1>
+        <p className="topic">1) Flexibility:</p>
+        <p>It is a flexible source of translation where a person can input their own text sign images to text based on their ease and personal preferences</p>
+        <p className="topic">2) Accuracy</p>
+        <p>It is a source of proper and accurate translation of people's sign language</p>
+        <p className="topic">3) Time convinient</p>
+        <p>It is a source of translation taking hardly time to convert which almost appears instant while taking video from live feed</p>
+      </section>
+      <section id="section4">
+        <h1></h1>
       </section>
     </>
   )
